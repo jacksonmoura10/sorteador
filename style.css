@@ -8,7 +8,6 @@
     --color-white: #FFFFFF;
 }
 
-
 * {
     margin: 0;
     padding: 0;
@@ -30,13 +29,18 @@ body {
     width: 100%;
 }
 
-
 .header-banner {
     flex: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 40px 0 0;
+}
+
+header img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 .input-section {
@@ -51,13 +55,16 @@ body {
     width: 100%;
 }
 
-
 .main-title {
     font-size: 48px;
     font-family: "Merriweather", serif;
     font-weight: 900;
     font-style: italic;
     color: var(--color-white);
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+    overflow: hidden;    /* Oculta o texto que ultrapassa o container */
+    text-overflow: ellipsis; /* Adiciona "..." quando o texto for muito grande */
+    text-align: center;  /* Centraliza o texto */
 }
 
 .section-title {
@@ -69,7 +76,6 @@ body {
     text-align: center;
 }
 
-
 .input-wrapper {
     display: flex;
     justify-content: center;
@@ -79,7 +85,7 @@ body {
 }
 
 .input-name {
-    width: 100%;
+    width: 80%;
     padding: 10px;
     border: 2px solid #000;
     border-radius: 25px 0 0 25px;
@@ -88,9 +94,9 @@ body {
 
 .button-container {
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    gap: 10px; 
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .input-title {
@@ -104,7 +110,6 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-
 button {
     padding: 15px 30px;
     font-family: "Inter", sans-serif;
@@ -115,19 +120,27 @@ button {
     cursor: pointer;
 }
 
+button:focus {
+    outline: 3px solid #de3434;
+}
+
 button.remover {
-    font-size: 10px; 
-    padding: 2px 5px; 
-    margin-left: 10px; 
-    background-color: #f44336; 
-    color: white; 
-    border: none; 
-    border-radius: 3px; 
-    cursor: pointer; 
+    font-size: 10px;
+    padding: 2px 5px;
+    margin-left: 10px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
 }
 
 button.remover:hover {
-    background-color: #d32f2f; 
+    background-color: #d32f2f;
+}
+
+button.remover:focus {
+    outline: 3px solid #d32f2f;
 }
 
 .button-add {
@@ -138,6 +151,10 @@ button.remover:hover {
 
 .button-add:hover {
     background-color: #a1a1a1;
+}
+
+.button-add:focus {
+    outline: 3px solid #a1a1a1;
 }
 
 ul {
@@ -156,7 +173,6 @@ ul {
     text-align: center;
 }
 
-
 .button-draw {
     display: flex;
     align-items: center;
@@ -166,7 +182,7 @@ ul {
     background-color: var(--color-button);
     font-size: 16px;
     border: none;
-    border-radius: 25px; 
+    border-radius: 25px;
     cursor: pointer;
 }
 
@@ -178,16 +194,90 @@ ul {
     background-color: var(--color-button-hover);
 }
 
+.button-draw:focus {
+    outline: 3px solid var(--color-button-hover);
+}
+
 #limparLista {
-    padding: 5px 10px; 
-    font-size: 12px; 
-    background-color: #f44336; 
-    color: white; 
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #f44336;
+    color: white;
     border: none;
-    border-radius: 25px; 
+    border-radius: 25px;
     cursor: pointer;
-    margin-top: 10px; 
+    margin-top: 10px;
+}
 
 #limparLista:hover {
     background-color: #d32f2f;
-} }
+}
+
+#limparLista:focus {
+    outline: 3px solid #d32f2f;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 32px; /* Reduzindo o tamanho do título */
+        white-space: normal; /* Permite que o título quebre de forma controlada */
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .input-name {
+        width: 90%;
+        margin-bottom: 10px;
+    }
+
+    .button-add {
+        width: 90%;
+        border-radius: 25px;
+    }
+
+    .button-draw {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .input-title {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 24px; /* Tamanho ainda menor para dispositivos muito pequenos */
+    }
+
+    .section-title {
+        font-size: 22px;
+    }
+
+    .input-section {
+        padding: 10px;
+        border-radius: 32px 32px 0 0;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .input-name {
+        font-size: 14px;
+    }
+
+    .button-draw {
+        padding: 10px 20px;
+    }
+}
